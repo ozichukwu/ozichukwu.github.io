@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap');
+
+
+/*My little CSS Reset START*/
+*,
+*::before,
+*::after{box-sizing:border-box;}
+a{text-decoration:none; color:inherit; cursor:pointer;}
+button{background-color:transparent; color:inherit; border-width:0; padding:0; cursor:pointer;}
+figure{margin:0;}
+input {border:0; padding:0; margin:0; background-color:transparent;}
+input::-moz-focus-inner {border:0; padding:0; margin:0;}
+ul, ol, dd{margin:0; padding:0; list-style:none;}
+h1, h2, h3, h4, h5, h6{margin:0; font-size:inherit; font-weight:inherit;}
+p{margin:0;}
+cite {font-style:normal;}
+fieldset{border-width:0; padding:0; margin:0;}
+/*My little CSS Reset END*/
+
+
+.gold-color {
+    color: rgb(247, 179, 1);
+}
+
+body {
+    background-color: #f3ede5;
+    padding: 25px 0;
+    display: grid;
+    justify-content: center;
+    gap: 90px;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: minmax(150px, 0.7fr) minmax(405px, 1fr) minmax(202px, 0.7fr);
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.navlinks {
+    display: flex;
+    align-items: center;
+}
+.navlinks > * {
+    margin-right: 30px;
+}
+
+/* dropdown styling */
+.dropdown-container {
+    position: relative;
+}
+.dropdown {
+    position: absolute;
+    top: 50px;
+    left: -80px;
+    background-color: #fff;
+    border-radius: 15px;
+    display: none;
+    padding: 20px;
+}
+
+/* tiny dropdown arrow pointer */
+.dropdown::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 9px 9px 9px;
+    border-color: transparent transparent #fff transparent;
+    top: -7px;
+    left: 97px;
+    z-index: -1;
+}
+.dropdown-container:hover > .dropdown {
+    display: block;
+}
+
+/* dropdown contents styling */
+.dd-option {
+    width: 350px;
+    display: flex;
+    gap: 5px;
+}
+.dd-option:not(.dd-option:last-child) {
+    margin-bottom: 22px;
+}
+.dd-opt-img {
+    align-self: flex-start;
+    width: 22px;
+    height: 22px;
+}
+.dd-opt-details {
+    color: grey;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 135%;
+}
+.dd-opt-details > h2 {
+    font-weight: 700;
+    color: rgb(10, 38, 63)
+}
+
+.navlink {
+    color: rgb(100, 100, 100);
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 100%;
+}
+.navlink:hover {
+    color: #000000;
+}
+.member-access {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.signup-link {
+    height: 40px;
+    width: 135px;
+    color: white;
+    background-color: rgb(19, 52, 22);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+
+/* main area styling  */
+.main-area {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-area-content {
+    font-family: Inter, sans-serif;
+}
+.main-area-content > h1 {
+    width: 650px;
+    margin-bottom: 10px;
+    font-size: 53px;
+    font-weight: 700;
+}
+.main-area-content > p {
+    width: 620px;
+    margin-bottom: 10px;
+    color: rgb(133, 133, 133);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 150%;
+}
+.main-area-content > a {
+    margin-bottom: 13px;
+}
+.main-area-content > p:nth-child(4) {
+    display: flex;
+    align-items: center;
+}
+.main-area-content > p:nth-child(4) > img {
+    width: 18px;
+    margin-left: 15px;
+}
+
+.main-area-img {
+    display: flex;
+    justify-content: flex-end;
+}
+.main-area-img > img {
+    width: 270px;
+    height: auto;
+}
+
+/* "trusted by" section styling */
+.trusted-by {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.trusted-by > p {
+    color: rgb(133, 133, 133);
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+.trusted-by > div {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.trusted-by img {
+    width: 160px;
+}
