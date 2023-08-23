@@ -1,37 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Codewell Challenge: JS30</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            function toggleMenu(e) {
+                document.querySelector(".menu-btn > .menu-open").classList.toggle("hidden");
+                document.querySelector(".menu-btn > .menu-close").classList.toggle("hidden");
+                document.querySelector(".menu").classList.toggle("hidden");
+            }
+
+            function productMenuOnclick(e){
+                e.preventDefault();
+                toggleMenu();
+                document.querySelector(".header > .dropdown").classList.remove("hidden");
+            }
+            function productMenuCloseOnclick(){
+                document.querySelector(".header > .dropdown").classList.add("hidden");
+            }
+
+            //product menu click event listener
+            document.querySelector(".products-menu-btn").addEventListener("click", productMenuOnclick);
+
+            //document click event listener (for closing popup menus)
+            document.onclick = function (e){
+                const menu = document.querySelector(".menu");
+                const menuOpen = document.querySelector(".menu-btn > .menu-open");
+                const menuClose = document.querySelector(".menu-btn > .menu-close");
+                if (e.target === menuOpen || e.target === menuClose || (!menu.contains(e.target) && !menu.classList.contains("hidden")))
+                    toggleMenu(e);
+
+                //product-menu-close button (on a small screen)
+                const productMenuBtn = document.querySelector(".products-menu-btn");
+                const productMenu = document.querySelector(".header > .dropdown");
+                const productMenuClose = document.querySelector(".header > .dropdown .menu-close");
+                if (!productMenu.classList.contains("hidden") && (e.target === productMenuClose
+                        || e.target !== productMenuBtn && !productMenu.contains(e.target)))
+                    productMenuCloseOnclick();
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="header">
         <div class="logo"><img src="assets/Logo.svg" alt="logo" class="logo"></div>
         <div class="navlinks">
             <div class="dropdown-container">
-                <a href="" class="navlink">Products</a>
+                <a href="#" class="navlink">Products</a>
                 <div class="dropdown">
-                    <div class="dd-option">
-                        <img class="dd-opt-img" src="assets/Spense_Icon.svg" alt="icon">
-                        <div class="dd-opt-details">
-                            <h2>Spence</h2>
-                            <p>Spence is a landing page for writers. Great for practicing absolute positioning and flex layouts.</p>
+                    <div>
+                        <div class="dd-option">
+                            <img class="dd-opt-img" src="assets/Spense_Icon.svg" alt="icon">
+                            <div class="dd-opt-details">
+                                <h2>Spence</h2>
+                                <p>Spence is a landing page for writers. Great for practicing absolute positioning and flex layouts.</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="dd-option">
-                        <img class="dd-opt-img" src="assets/Fiber_Icon.svg" alt="icon">
-                        <div class="dd-opt-details">
-                            <h2>Fiber Landing Page</h2>
-                            <p>An online portfolio generator. Great to practice flex/grid layouts, and absolute positioning.</p>
+    
+                        <div class="dd-option">
+                            <img class="dd-opt-img" src="assets/Fiber_Icon.svg" alt="icon">
+                            <div class="dd-opt-details">
+                                <h2>Fiber Landing Page</h2>
+                                <p>An online portfolio generator. Great to practice flex/grid layouts, and absolute positioning.</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="dd-option">
-                        <img class="dd-opt-img" src="assets/Gradie_Icon.svg" alt="icon">
-                        <div class="dd-opt-details">
-                            <h2>Gradie Sign Up Page</h2>
-                            <p>Gradie is a simple sign up page, great to practice centering layouts.</p>
+    
+                        <div class="dd-option">
+                            <img class="dd-opt-img" src="assets/Gradie_Icon.svg" alt="icon">
+                            <div class="dd-opt-details">
+                                <h2>Gradie Sign Up Page</h2>
+                                <p>Gradie is a simple sign up page, great to practice centering layouts.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -43,6 +84,49 @@
         <div class="member-access">
             <a class="navlink" href="">Sign in</a>
             <a href="" class="signup-link">Try for free</a>
+        </div>
+        <div class="menu-btn">
+            <img class="menu-open" src="assets/Menu.svg">
+            <img class="menu-close hidden" src="assets/Close.svg">
+            <div class="menu hidden">
+                <a href="#" class="navlink products-menu-btn">Products</a>
+                <a href="" class="navlink">Challenges</a>
+                <a href="" class="navlink">Resources</a>
+                <a href="" class="navlink">Other Links</a>
+                <a class="navlink" href="">Sign in</a>
+                <a href="" class="signup-link">Try for free</a>
+            </div>
+        </div>
+        <div class="dropdown hidden">
+            <div>
+                <div class="dd-descr">
+                    <h2 class="dd-opt-details">PRODUCTS</h2>
+                    <img class="menu-close" src="assets/Close.svg">
+                </div>
+                <div class="dd-option">
+                    <img class="dd-opt-img" src="assets/Spense_Icon.svg" alt="icon">
+                    <div class="dd-opt-details">
+                        <h2>Spence</h2>
+                        <p>Spence is a landing page for writers. Great for practicing absolute positioning and flex layouts.</p>
+                    </div>
+                </div>
+
+                <div class="dd-option">
+                    <img class="dd-opt-img" src="assets/Fiber_Icon.svg" alt="icon">
+                    <div class="dd-opt-details">
+                        <h2>Fiber Landing Page</h2>
+                        <p>An online portfolio generator. Great to practice flex/grid layouts, and absolute positioning.</p>
+                    </div>
+                </div>
+
+                <div class="dd-option">
+                    <img class="dd-opt-img" src="assets/Gradie_Icon.svg" alt="icon">
+                    <div class="dd-opt-details">
+                        <h2>Gradie Sign Up Page</h2>
+                        <p>Gradie is a simple sign up page, great to practice centering layouts.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -69,5 +153,6 @@
             <img src="assets/Walmart Logo.svg">
         </div>
     </div>
+    
 </body>
 </html>
